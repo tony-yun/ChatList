@@ -33,5 +33,17 @@ extension Chat {
         Chat(name: "john", chat: "☀️ it is sunny day. let's get out..", date: "2022-03-13"),
         
     ]
+    static let sortedList: [Chat] = {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+          
+          return list.sorted { (chat1, chat2) -> Bool in
+              if let date1 = dateFormatter.date(from: chat1.date),
+                 let date2 = dateFormatter.date(from: chat2.date) {
+                  return date1 > date2
+              }
+              return false
+          }
+      }()
 }
 

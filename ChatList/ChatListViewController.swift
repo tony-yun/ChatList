@@ -15,7 +15,16 @@ class ChatListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // 데이터의 갯수
-    let chatList:[Chat] = Chat.list
+    let chatList:[Chat] = Chat.sortedList
+    
+    // sortedList를 만들어서 가져오는게 아닌, 그냥 list를 가져올 시, 여기서 date sort하는 법
+    /**
+     위는 let -> var로 변경
+     chatList = chatList.sorted(by:{ chat1, chat2 in
+        return chat1.date > chat2.date
+     })
+        
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()

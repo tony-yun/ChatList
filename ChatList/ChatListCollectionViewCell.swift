@@ -13,6 +13,16 @@ class ChatListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var chatLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    // imageView corner radius 코드에서 적용하기
+    /**
+     -- awakeFromNib() 함수가 사용하기 전에 storyboard에서 꺼내오는 함수다. 여기서 세팅을 해주면 적용.
+     
+     override func awakeFromNib(){
+        super.awakeFromNib()
+        thumbnail.layer.cornerRadius = 40
+     }
+     */
+    
     func configure(_ chat:Chat){
         thumbnail.image = UIImage(named: chat.name)
         nameLabel.text = chat.name
